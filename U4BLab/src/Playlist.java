@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Playlist {
-    private ArrayList<Song> playlist;
+    private static ArrayList<Song> playlist;
     public Playlist(){
         playlist = new ArrayList<>();
     }
@@ -71,9 +71,5 @@ public class Playlist {
             result += s.toString() + "\n";
         }
         return header + line + result;
-    }
-
-    public ArrayList<Song> getPlaylist() {
-        return playlist;
     }
 }
