@@ -13,17 +13,18 @@ public class SpotifyTester {
         System.out.println("7 - Quit");
         System.out.println("Enter choice (1-7): ");
         int choice = scan.nextInt();
+        
 
 
 
 
 
 
-        String header = String.format("%-22s %-20s %-10s %-6s %-8s %-15s", "Title", "Developer", "Platform", "Year", "Price", "Genre");
-        String line = "-------------------------------------------------------------------------------------";
-        System.out.println(header + "\n" + line);
-        for(Playlist p : Song){
-            System.out.println(p);
-        }
+//        String header = String.format("%-22s %-20s %-10s %-6s %-8s %-15s", "Title", "Developer", "Platform", "Year", "Price", "Genre");
+//        String line = "-------------------------------------------------------------------------------------";
+//        System.out.println(header + "\n" + line);
+//        for(Playlist p : playlist){
+//            System.out.println(p);
+//        }
     }
 }

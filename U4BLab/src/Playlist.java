@@ -9,7 +9,7 @@ public class Playlist {
         playlist = new ArrayList<>();
     }
 
-    public static void main() throws IOException {
+    public static void linearSearch() throws IOException {
         Scanner file = new Scanner(new File("spotify_unique_years_artists.txt"));
 
         while(file.hasNextLine()){
@@ -26,41 +26,6 @@ public class Playlist {
             playlist.add(new Song(song, artist, album, sec, year, genre));
         }
         file.close();
-    }
-
-    public void searchByGenre(String genre) {
-        for(Song s : playlist){
-            if(s.getGenre().equalsIgnoreCase(genre)){
-                System.out.println(s);
-            }
-        }
-    }
-
-    public void sortByArtist() {
-        for(int i = 0; i < playlist.size() - 1; i++){
-            int minIndex = i;
-
-            for(int j = i + 1; j < playlist.size(); j++){
-                if(playlist.get(j).getArtist().compareToIgnoreCase(playlist.get(minIndex).getArtist()) < 0){
-                    minIndex = j;
-                }
-            }
-            Song temp = playlist.get(i);
-            playlist.set(i, playlist.get(minIndex));
-            playlist.set(minIndex, temp);
-        }
-    }
-
-    public void sortByReleaseYear() {
-        for(int i = 1; i < playlist.size(); i++){
-            Song key = playlist.get(i);
-            int j = i - 1;
-            while(j >= 0 && playlist.get(j).getYear() > key.getYear()){
-                playlist.set(j + 1, playlist.get(j));
-                j--;
-            }
-            playlist.set(j + 1, key);
-        }
     }
 
     public String toString() {
