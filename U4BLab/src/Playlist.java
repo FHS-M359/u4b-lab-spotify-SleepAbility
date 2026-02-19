@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Playlist {
-    private static ArrayList<Song> playlist;
+    private ArrayList<Song> playlist;
     public Playlist(){
         playlist = new ArrayList<>();
     }
 
-    public static void linearSearch() throws IOException {
+    public void linearSearch() throws IOException {
         Scanner file = new Scanner(new File("spotify_unique_years_artists.txt"));
 
         while(file.hasNextLine()){

@@ -1,8 +1,11 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class SpotifyTester {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         Scanner scan = new Scanner(System.in);
+        Playlist p = new Playlist();
+        p.linearSearch();
         System.out.println("================= Music Menu =================");
         System.out.println("1 - Sort By Artist (A-Z)");
         System.out.println("2 - Sort By Artist (Z-A)");
@@ -13,18 +16,17 @@ public class SpotifyTester {
         System.out.println("7 - Quit");
         System.out.println("Enter choice (1-7): ");
         int choice = scan.nextInt();
-        
 
 
 
 
 
 
-//        String header = String.format("%-22s %-20s %-10s %-6s %-8s %-15s", "Title", "Developer", "Platform", "Year", "Price", "Genre");
-//        String line = "-------------------------------------------------------------------------------------";
-//        System.out.println(header + "\n" + line);
-//        for(Playlist p : playlist){
-//            System.out.println(p);
-//        }
+
+
+        String header = String.format("%-22s %-20s %-10s %-6s %-8s %-15s", "Title", "Developer", "Platform", "Year", "Price", "Genre");
+        String line = "-------------------------------------------------------------------------------------";
+        System.out.println(header + "\n" + line);
+        System.out.println(p.toString());
     }
 }
