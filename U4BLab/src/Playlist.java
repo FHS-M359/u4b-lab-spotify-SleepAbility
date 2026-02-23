@@ -10,7 +10,7 @@ public class Playlist {
     }
 
     public void linearSearch() throws IOException {
-        Scanner file = new Scanner(new File("spotify_unique_years_artists.txt"));
+        Scanner file = new Scanner(new File("H:\\M359\\u4b-lab-spotify-SleepAbility\\U4BLab\\spotify_unique_years_artists.txt"));
 
         while(file.hasNextLine()){
             String line = file.nextLine();
@@ -66,6 +66,10 @@ public class Playlist {
             playlist.set(i, playlist.get(min));
             playlist.set(min, temp);
         }
+    }
+
+    public ArrayList<Song> getPlaylist() {
+        return playlist;
     }
 
     public String toString() {
