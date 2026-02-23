@@ -15,7 +15,10 @@ public class SpotifyTester {
         System.out.println("6 - Display All Songs");
         System.out.println("7 - Quit");
         System.out.println("Enter choice (1-7): ");
-        int choice = scan.nextInt();
+        int idk = scan.nextInt();
+        if(idk = 1){
+            System.out.println(p.toString());
+        }
 
 
 
