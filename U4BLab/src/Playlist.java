@@ -28,6 +28,46 @@ public class Playlist {
         file.close();
     }
 
+    public void searchGenre(String genre){
+        for(Song s : playlist){
+            if(s.getGenre().equalsIgnoreCase(genre)){
+                System.out.println(s);
+            }
+        }
+    }
+
+    public void sortArtistAZ() {
+        for(int i = 0; i < playlist.size() - 1; i++){
+            int min = i;
+
+            for(int j = i + 1; j < playlist.size(); j++){
+                if(playlist.get(j).getArtist().compareTo(playlist.get(min).getArtist()) < 0){
+                    min = j;
+                }
+            }
+
+            Song temp = playlist.get(i);
+            playlist.set(i, playlist.get(min));
+            playlist.set(min, temp);
+        }
+    }
+
+    public void sortArtistZA() {
+        for(int i = playlist.size() - 1; i >= 0; i--){
+            int min = i;
+
+            for(int j = i - 1; j >= 0; j--){
+                if(playlist.get(j).getArtist().compareTo(playlist.get(min).getArtist()) < 0){
+                    min = j;
+                }
+            }
+
+            Song temp = playlist.get(i);
+            playlist.set(i, playlist.get(min));
+            playlist.set(min, temp);
+        }
+    }
+
     public String toString() {
         String header = String.format("%-25s %-20s %-20s %-8s %-8s %-15s\n", "Title", "Artist", "Album", "Seconds", "Year", "Genre");
         String line = "-----------------------------------------------------------------------------------------------\n";
