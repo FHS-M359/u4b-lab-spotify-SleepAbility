@@ -16,42 +16,31 @@ public class SpotifyTester {
         System.out.println("7 - Quit");
         System.out.println("Enter choice (1-7): ");
         int choice = scan.nextInt();
-        if(choice = 1){
+        if(choice == 1){
             p.sortArtistAZ();
         }
-        if(choice = 2){
+        if(choice == 2){
             p.sortArtistZA();
         }
-        if(choice = 3){
+        if(choice == 3){
 
         }
-        if(choice = 4){
+        if(choice == 4){
 
         }
-        if(choice = 5){
+        if(choice == 5){
             System.out.println("Enter the genre you like to sort by:");
             String sort = scan.nextLine();
             p.sortGenre(sort);
         }
-        if(choice = 6){
+        if(choice == 6){
+            String header = String.format("%-22s %-20s %-10s %-6s %-8s %-15s", "Title", "Developer", "Platform", "Year", "Price", "Genre");
+            String line = "-------------------------------------------------------------------------------------";
+            System.out.println(header + "\n" + line);
+            System.out.println(p.toString());
+        }
+        if(choice == 7){
 
         }
-        if(choice = 7){
-
-        }
-
-
-
-
-
-
-
-
-
-
-        String header = String.format("%-22s %-20s %-10s %-6s %-8s %-15s", "Title", "Developer", "Platform", "Year", "Price", "Genre");
-        String line = "-------------------------------------------------------------------------------------";
-        System.out.println(header + "\n" + line);
-        System.out.println(p.toString());
     }
 }
