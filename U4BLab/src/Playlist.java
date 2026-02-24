@@ -28,7 +28,7 @@ public class Playlist {
         file.close();
     }
 
-    public void searchGenre(String genre){
+    public void sortGenre(String genre){
         for(Song s : playlist){
             if(s.getGenre().equalsIgnoreCase(genre)){
                 System.out.println(s);
