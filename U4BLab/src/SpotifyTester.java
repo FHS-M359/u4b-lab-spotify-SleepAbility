@@ -18,26 +18,27 @@ public class SpotifyTester {
         int choice = scan.nextInt();
         if(choice == 1){
             p.sortArtistAZ();
+            System.out.println(p);
         }
         if(choice == 2){
             p.sortArtistZA();
+            System.out.println(p);
         }
         if(choice == 3){
-
+            p.sortYearOldNew();
+            System.out.println(p);
         }
         if(choice == 4){
-
+            p.sortYearNewOld();
+            System.out.println(p);
         }
         if(choice == 5){
             System.out.println("Enter the genre you like to sort by:");
-            String sort = scan.nextLine();
-            p.sortGenre(sort);
+            String g = scan.nextLine();
+            p.sortGenre(g);
         }
         if(choice == 6){
-            String header = String.format("%-22s %-20s %-10s %-6s %-8s %-15s", "Title", "Developer", "Platform", "Year", "Price", "Genre");
-            String line = "-------------------------------------------------------------------------------------";
-            System.out.println(header + "\n" + line);
-            System.out.println(p.toString());
+            System.out.println(p);
         }
         if(choice == 7){
 
