@@ -28,14 +28,6 @@ public class Playlist {
         file.close();
     }
 
-    public void sortGenre(String genre){
-        for(Song s : playlist){
-            if(s.getGenre().equalsIgnoreCase(genre)){
-                System.out.println(s);
-            }
-        }
-    }
-
     public void sortArtistAZ() {
         for(int i = 0; i < playlist.size() - 1; i++){
             int min = i;
@@ -67,6 +59,47 @@ public class Playlist {
             playlist.set(min, temp);
         }
     }
+
+    public void sortYearOldNew() {
+        for(int i = 1; i < playlist.size(); i++){
+            Song key = playlist.get(i);
+            int j = i - 1;
+
+            while(j >= 0 && playlist.get(j).getYear() > key.getYear()){
+                playlist.set(j + 1, playlist.get(j));
+                j--;
+            }
+            playlist.set(j + 1, key);
+        }
+    }
+
+    public void sortYearNewOld() {
+        for(int i = 1; i < playlist.size(); i++){
+            Song key = playlist.get(i);
+            int j = i - 1;
+
+            while(j >= 0 && playlist.get(j).getYear() < key.getYear()){
+
+                playlist.set(j + 1, playlist.get(j));
+                j--;
+            }
+            playlist.set(j + 1, key);
+        }
+    }
+
+    public void sortGenre(String genre){
+        boolean found = false;
+        for(Song s : playlist){
+            if(s.getGenre().equalsIgnoreCase(genre)){
+                System.out.println(s);
+                found = true;
+            }
+        }
+        if(!found){
+            System.out.println("No songs found in that genre.");
+        }
+    }
+
 
     public ArrayList<Song> getPlaylist() {
         return playlist;
