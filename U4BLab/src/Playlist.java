@@ -33,7 +33,7 @@ public class Playlist {
             int min = i;
 
             for(int j = i + 1; j < playlist.size(); j++){
-                if(playlist.get(j).getArtist().compareTo(playlist.get(min).getArtist()) < 0){
+                if(playlist.get(j).getArtist().compareToIgnoreCase(playlist.get(min).getArtist()) < 0){
                     min = j;
                 }
             }
@@ -45,11 +45,11 @@ public class Playlist {
     }
 
     public void sortArtistZA() {
-        for(int i = playlist.size() - 1; i >= 0; i--){
+        for(int i = playlist.size() - 1; i >= 0; i++){
             int min = i;
 
-            for(int j = i - 1; j >= 0; j--){
-                if(playlist.get(j).getArtist().compareTo(playlist.get(min).getArtist()) < 0){
+            for(int j = i + 1; j >= 0; j++){
+                if(playlist.get(j).getArtist().compareToIgnoreCase(playlist.get(min).getArtist()) < 0){
                     min = j;
                 }
             }
