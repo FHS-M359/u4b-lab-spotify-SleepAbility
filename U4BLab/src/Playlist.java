@@ -106,7 +106,7 @@ public class Playlist {
     }
 
     public String toString() {
-        String header = String.format("%-25s %-20s %-20s %-8s %-8s %-15s\n", "Title", "Artist", "Album", "Seconds", "Year", "Genre");
+        String header = String.format("%-25s %-20s %-30s %-8s %-8s %-12s\n", "Title", "Artist", "Album", "Seconds", "Year", "Genre");
         String line = "-----------------------------------------------------------------------------------------------\n";
         String result = "";
         for(Song s : playlist){
