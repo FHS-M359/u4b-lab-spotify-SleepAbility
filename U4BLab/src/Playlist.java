@@ -9,6 +9,10 @@ public class Playlist {
         playlist = new ArrayList<>();
     }
 
+    /**
+     * Reads song data from file and loads into playlist ArrayList
+     * @throws IOException if file not found
+     */
     public void linearSearch() throws IOException {
         Scanner file = new Scanner(new File("H:\\M359\\u4b-lab-spotify-SleepAbility\\U4BLab\\spotify_unique_years_artists.txt"));
 
@@ -28,6 +32,10 @@ public class Playlist {
         file.close();
     }
 
+    /**
+     * Sorts playlist alphabetically in ascending order (A-Z) by artist
+     * Uses selection sort
+     */
     public void sortArtistAZ() {
         for(int i = 0; i < playlist.size() - 1; i++){
             int min = i;
@@ -44,6 +52,10 @@ public class Playlist {
         }
     }
 
+    /**
+     * Sorts playlist alphabetically in descending order (Z-A) by artist
+     * Also uses selection sort
+     */
     public void sortArtistZA() {
         for(int i = playlist.size() - 1; i >= 0; i++){
             int min = i;
