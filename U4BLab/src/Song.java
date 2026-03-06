@@ -11,17 +11,34 @@ public class Song {
         genre = ge;
     }
 
+    /**
+     * Returns a formatted string containing all song information
+     * @return formatted song details
+     */
     public String toString(){
         return String.format("%-25s %-20s %-30s %-8d %-8d %-12s", song, artist, album, sec, year, genre);
     }
 
+    /**
+     * Gets the artist of the song
+     * @return the artist name
+     */
     public String getArtist() {
         return artist;
     }
+
+    /**
+     * Gets the release year of the song
+     * @return the year the song was released
+     */
     public int getYear() {
         return year;
     }
 
+    /**
+     * Gets the genre of the song
+     * @return the song genre
+     */
     public String getGenre() {
         return genre;
     }

@@ -10,12 +10,13 @@ public class Playlist {
     }
 
     /**
-     * Reads song data from file and loads into playlist ArrayList
+     * Reads song data from a file and loads it into the playlist ArrayList
      * @throws IOException if file not found
      */
-    public void linearSearch() throws IOException {
-        Scanner file = new Scanner(new File("H:\\M359\\u4b-lab-spotify-SleepAbility\\U4BLab\\spotify_unique_years_artists.txt"));
+    public void loadSongs() throws IOException {
+        Scanner file = new Scanner(new File("U4BLab/spotify_unique_years_artists.txt"));
 
+        //reads each line of the file and convert it into a Song object
         while(file.hasNextLine()){
             String line = file.nextLine();
             String[] parts = line.split(",");
@@ -40,12 +41,14 @@ public class Playlist {
         for(int i = 0; i < playlist.size() - 1; i++){
             int min = i;
 
+            //search remaining list for smaller artist name
             for(int j = i + 1; j < playlist.size(); j++){
                 if(playlist.get(j).getArtist().compareToIgnoreCase(playlist.get(min).getArtist()) < 0){
                     min = j;
                 }
             }
 
+            //swap songs
             Song temp = playlist.get(i);
             playlist.set(i, playlist.get(min));
             playlist.set(min, temp);
@@ -57,51 +60,73 @@ public class Playlist {
      * Also uses selection sort
      */
     public void sortArtistZA() {
-        for(int i = playlist.size() - 1; i >= 0; i++){
-            int min = i;
+        for(int i = 0; i < playlist.size() - 1; i++){
+            int max = i;
 
-            for(int j = i + 1; j >= 0; j++){
-                if(playlist.get(j).getArtist().compareToIgnoreCase(playlist.get(min).getArtist()) < 0){
-                    min = j;
+            //find largest artist name in remaining list
+            for(int j = i + 1; j < playlist.size(); j++){
+                if(playlist.get(j).getArtist().compareToIgnoreCase(playlist.get(max).getArtist()) > 0){
+                    max = j;
                 }
             }
 
+            //swap songs
             Song temp = playlist.get(i);
-            playlist.set(i, playlist.get(min));
-            playlist.set(min, temp);
+            playlist.set(i, playlist.get(max));
+            playlist.set(max, temp);
         }
     }
 
+    /**
+     * Sorts playlist in ascending order (oldest to newest) by release year
+     * Uses insertion sort
+     */
     public void sortYearOldNew() {
         for(int i = 1; i < playlist.size(); i++){
             Song key = playlist.get(i);
             int j = i - 1;
 
+            //shift larger years right
             while(j >= 0 && playlist.get(j).getYear() > key.getYear()){
                 playlist.set(j + 1, playlist.get(j));
                 j--;
             }
+
+            //insert song in correct index of the playlist ArrayList
             playlist.set(j + 1, key);
         }
     }
 
+    /**
+     * Sorts playlist in descending order (newest to oldest) by release year
+     * Also uses insertion sort
+     */
     public void sortYearNewOld() {
         for(int i = 1; i < playlist.size(); i++){
             Song key = playlist.get(i);
             int j = i - 1;
 
+            //shift smaller years right
             while(j >= 0 && playlist.get(j).getYear() < key.getYear()){
 
                 playlist.set(j + 1, playlist.get(j));
                 j--;
             }
+
+            //insert song in correct index of the playlist ArrayList
             playlist.set(j + 1, key);
         }
     }
 
-    public void sortGenre(String genre){
+    /**
+     * Performs a linear search to find all songs of a specific genre
+     * @param genre the genre to search for
+     */
+    public void searchGenre(String genre){
         boolean found = false;
         for(Song s : playlist){
+
+            //check if the song's genre matches the user's input
             if(s.getGenre().equalsIgnoreCase(genre)){
                 System.out.println(s);
                 found = true;
@@ -112,11 +137,10 @@ public class Playlist {
         }
     }
 
-
-    public ArrayList<Song> getPlaylist() {
-        return playlist;
-    }
-
+    /**
+     * Returns a formatted string containing a header, a line separating the header and playlist, and all songs information in the playlist
+     * @return complete formatted spotify menu
+     */
     public String toString() {
         String header = String.format("%-25s %-20s %-30s %-8s %-8s %-12s\n", "Title", "Artist", "Album", "Seconds", "Year", "Genre");
         String line = "-----------------------------------------------------------------------------------------------\n";

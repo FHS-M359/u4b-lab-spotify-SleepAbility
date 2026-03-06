@@ -5,7 +5,7 @@ public class SpotifyTester {
     public static void main(String[] args) throws IOException {
         Scanner scan = new Scanner(System.in);
         Playlist p = new Playlist();
-        p.linearSearch();
+        p.loadSongs();
         int choice = 0;
         while(choice != 7){
             try{
@@ -37,9 +37,9 @@ public class SpotifyTester {
                 }
                 else if(choice == 5){
                     scan.nextLine();
-                    System.out.println("Enter the genre you like to sort by:");
+                    System.out.println("Enter the genre you like to search by:");
                     String g = scan.nextLine();
-                    p.sortGenre(g);
+                    p.searchGenre(g);
                 }
                 else if(choice == 6){
                     System.out.println(p);
